@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAlpha - Interactive Image Gallery</title>
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+    <button id="theme-toggle" class="theme-toggle" title="Toggle light / dark theme" aria-label="Toggle theme">&#9789;</button>
+
+    <header>
+        <span class="badge">CodeAlpha Internship &middot; Task 1</span>
+        <h1>Interactive Image Gallery</h1>
+    </header>
+
+    <!-- Controls: Search + Category Filter -->
+    <div class="controls">
+        <div class="search-wrap">
+            <input type="search" id="search" class="search-input" placeholder="Search images..." aria-label="Search images">
+            <button id="clear-search" class="clear-search" title="Clear search" aria-label="Clear search" tabindex="-1">&#10005;</button>
+        </div>
+        <div class="filter-buttons" role="tablist" aria-label="Filter by category">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+            <button class="filter-btn" data-filter="architecture">Architecture</button>
+            <button class="filter-btn" data-filter="technology">Technology</button>
+            <button class="filter-btn" data-filter="favorites">Favorites</button>
+        </div>
+    </div>
+
+    <!-- Toolbar: Stats + Actions -->
+    <div class="toolbar">
+        <span class="stats" id="stats">Showing 12 / 12</span>
+        <div class="toolbar-actions">
+            <button class="tool-btn add-btn" id="add-img-btn" title="Add image" aria-label="Add image">+&#8202;&#10010;</button>
+            <button class="tool-btn" id="shuffle-btn" title="Shuffle grid" aria-label="Shuffle grid">&#8644;</button>
+        </div>
+    </div>
+
+    <!-- Image Gallery Grid -->
+    <div class="gallery-container" id="gallery">
+        <figure class="gallery-item" data-category="nature" data-title="Mountain View">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Mountain View" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Mountain View</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Modern Building">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Modern Building" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Modern Building</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Circuit Board">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Circuit Board" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Circuit Board</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Green Forest">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Green Forest" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Green Forest</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Interior Design">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Interior Design" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Interior Design</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Code Screen">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Code Screen" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Code Screen</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Sunlit Forest">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Sunlit Forest" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Sunlit Forest</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Mountain Lake">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" alt="Mountain Lake" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Mountain Lake</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Glass Facade">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Glass Facade" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Glass Facade</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Office Interior">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80" alt="Office Interior" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Office Interior</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Laptop Coding">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Laptop Coding" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Laptop Coding</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Code Editor">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Code Editor" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Code Editor</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Lagoon Vista">
+            <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=600&q=80" alt="Lagoon Vista" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Lagoon Vista</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="White Concrete">
+            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=600&q=80" alt="White Concrete" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">White Concrete</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Team Coding">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Team Coding" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Team Coding</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Waterfall Light">
+            <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=600&q=80" alt="Waterfall Light" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Waterfall Light</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Looking Up">
+            <img src="https://images.unsplash.com/photo-1503174971373-b1f69850bded?auto=format&fit=crop&w=600&q=80" alt="Looking Up" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Looking Up</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Laptop Code">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80" alt="Laptop Code" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Laptop Code</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Mountain Dawn">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Mountain Dawn" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Mountain Dawn</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Hillside House">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Hillside House" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Hillside House</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Data Center">
+            <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&w=600&q=80" alt="Data Center" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Data Center</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="nature" data-title="Sunrise Meadow">
+            <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=600&q=80" alt="Sunrise Meadow" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Sunrise Meadow</span><span class="caption-cat">Nature</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="architecture" data-title="Facade Geometry">
+            <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&w=600&q=80" alt="Facade Geometry" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Facade Geometry</span><span class="caption-cat">Architecture</span></figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="technology" data-title="Robotic Arm">
+            <img src="https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=600&q=80" alt="Robotic Arm" loading="lazy">
+            <figcaption class="caption"><span class="caption-title">Robotic Arm</span><span class="caption-cat">Technology</span></figcaption>
+        </figure>
+    </div>
+
+    <p class="no-results" id="no-results">No images match your search or filters.</p>
+
+    <footer>Built for the CodeAlpha Frontend Internship &middot; HTML, CSS &amp; JavaScript</footer>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <!-- Add Image Modal -->
+    <div id="add-modal" class="add-modal" role="dialog" aria-modal="true" aria-label="Add image">
+        <div class="add-modal-box">
+            <span class="close-btn add-close" title="Close">&times;</span>
+            <h3>Add New Image</h3>
+            <input type="text" id="add-title" class="add-field" placeholder="Title (e.g. Sunset Beach)" aria-label="Image title">
+            <input type="url" id="add-url" class="add-field" placeholder="Image URL (https://...)" aria-label="Image URL">
+            <select id="add-category" class="add-field" aria-label="Category">
+                <option value="nature">Nature</option>
+                <option value="architecture">Architecture</option>
+                <option value="technology">Technology</option>
+            </select>
+            <button id="add-confirm" class="add-confirm">Add Image</button>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal View -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+        <span class="close-btn" title="Close">&times;</span>
+        <button class="nav-btn prev-btn" aria-label="Previous image">&#10094;</button>
+        <figure class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged View">
+            <figcaption class="lightbox-meta">
+                <span class="lightbox-details">
+                    <span class="caption-title" id="lightbox-caption"></span>
+                    <span class="chip" id="lightbox-chip"></span>
+                </span>
+                <span class="lightbox-actions">
+                    <button id="lb-play" class="icon-btn" title="Play slideshow" aria-label="Play slideshow">&#9654;</button>
+                    <button id="lb-fullscreen" class="icon-btn" title="Fullscreen" aria-label="Fullscreen">&#9974;</button>
+                    <button id="lb-download" class="icon-btn" title="Download image" aria-label="Download image">&#11015;</button>
+                </span>
+                <span class="lightbox-counter" id="lightbox-counter">1 / 24</span>
+            </figcaption>
+        </figure>
+        <button class="nav-btn next-btn" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
